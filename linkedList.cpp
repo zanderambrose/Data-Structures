@@ -37,6 +37,21 @@ public:
             temp = this->head;
         }
     }
+    void append(int value)
+    {
+        Node *newNode = new Node(value);
+        if (this->length > 0)
+        {
+            this->tail->next = newNode;
+            this->tail = newNode;
+        }
+        else
+        {
+            this->head = newNode;
+            this->tail = newNode;
+        }
+        this->length++;
+    }
     void printList()
     {
         Node *temp = this->head;
