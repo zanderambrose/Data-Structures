@@ -55,29 +55,39 @@ public:
     void printList()
     {
         Node *temp = this->head;
+        std::cout << "List: ";
         while (temp)
         {
-            std::cout << temp->value << ", " << std::endl;
+            std::cout << temp->value << ", ";
             temp = temp->next;
         }
+        std::cout << std::endl;
     }
     void getHead()
     {
-        std::cout << this->head->value << std::endl;
+        std::cout << "Head: " << this->head->value << std::endl;
     }
     void getTail()
     {
-        std::cout << this->tail->value << std::endl;
+        std::cout << "Tail: " << this->tail->value << std::endl;
     }
     void getLength()
     {
-        std::cout << this->length << std::endl;
+        std::cout << "Length: " << this->length << std::endl;
     }
 };
 
 int main()
 {
     LinkedList *myLinkedList = new LinkedList(1);
+    myLinkedList->printList();
+    myLinkedList->getHead();
+    myLinkedList->getTail();
+    myLinkedList->getLength();
+    std::cout << std::endl;
+    std::cout << std::endl;
+    std::cout << std::endl;
+    myLinkedList->append(5);
     myLinkedList->printList();
     myLinkedList->getHead();
     myLinkedList->getTail();
