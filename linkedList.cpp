@@ -27,6 +27,16 @@ public:
         this->tail = newNode;
         this->length = 1;
     }
+    ~LinkedList()
+    {
+        Node *temp = this->head;
+        while (this->head)
+        {
+            this->head = this->head->next;
+            delete temp;
+            temp = this->head;
+        }
+    }
     void printList()
     {
         Node *temp = this->head;
