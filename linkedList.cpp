@@ -1,16 +1,28 @@
-#include<iostream>
-
-template <typename T>
-class LinkedList{
-	public:
-		LinkedList(T value){
-			this->value = value;	
-		}
-		T value;
+class Node
+{
+public:
+    int value;
+    Node *next;
+    Node(int val)
+    {
+        this->value = val;
+        this->next = nullptr;
+    };
 };
 
-int main(){
-	LinkedList<int> myLl(10);
-	std::cout << "My LL value is: " << myLl.value << std::endl;
-	return 0;
-}
+class LinkedList
+{
+private:
+    Node *head;
+    Node *tail;
+    int length;
+
+public:
+    LinkedList(int value)
+    {
+        Node *node = new Node(value);
+        this->head = node;
+        this->tail = node;
+        this->length = 1;
+    };
+};
