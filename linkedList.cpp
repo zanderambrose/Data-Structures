@@ -107,6 +107,21 @@ public:
         delete temp;
         this->length--;
     }
+    Node *get(int index)
+    {
+        if (index < 0 || index >= this->length)
+            return nullptr;
+        int currIndex = 0;
+        Node *temp = this->head;
+        while (temp)
+        {
+            if (currIndex == index)
+                return temp;
+            currIndex++;
+            temp = temp->next;
+        }
+        return nullptr;
+    }
     void printList()
     {
         Node *temp = this->head;
@@ -134,22 +149,13 @@ public:
 
 int main()
 {
-    LinkedList *myLinkedList = new LinkedList(2);
+    LinkedList *myLinkedList = new LinkedList(0);
     myLinkedList->append(1);
+    myLinkedList->append(2);
+    myLinkedList->append(3);
 
-    std::cout << "LL before deleteFirst(): " << std::endl;
-    myLinkedList->printList();
+    std::cout << myLinkedList->get(2) << std::endl;
+    std::cout << myLinkedList->get(2)->value << std::endl;
 
-    myLinkedList->deleteFirst();
-    std::cout << "LL after first deleteFirst(): " << std::endl;
-    myLinkedList->printList();
-
-    myLinkedList->deleteFirst();
-    std::cout << "LL after second deleteFirst(): " << std::endl;
-    myLinkedList->printList();
-
-    myLinkedList->deleteFirst();
-    std::cout << "LL after third deleteFirst(): " << std::endl;
-    myLinkedList->printList();
     return 0;
 }
