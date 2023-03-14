@@ -68,6 +68,21 @@ public:
         }
         this->length++;
     }
+    void deleteFirst()
+    {
+        if (this->length == 0)
+            return;
+        if (this->length == 1)
+        {
+            this->head = nullptr;
+            this->tail = nullptr;
+        }
+        else
+        {
+            this->head = this->head->next;
+        }
+        this->length--;
+    }
     void deleteLast()
     {
         if (this->length == 0)
@@ -120,10 +135,21 @@ public:
 int main()
 {
     LinkedList *myLinkedList = new LinkedList(2);
-    myLinkedList->append(3);
+    myLinkedList->append(1);
 
-    myLinkedList->prepend(1);
+    std::cout << "LL before deleteFirst(): " << std::endl;
+    myLinkedList->printList();
 
+    myLinkedList->deleteFirst();
+    std::cout << "LL after first deleteFirst(): " << std::endl;
+    myLinkedList->printList();
+
+    myLinkedList->deleteFirst();
+    std::cout << "LL after second deleteFirst(): " << std::endl;
+    myLinkedList->printList();
+
+    myLinkedList->deleteFirst();
+    std::cout << "LL after third deleteFirst(): " << std::endl;
     myLinkedList->printList();
     return 0;
 }
