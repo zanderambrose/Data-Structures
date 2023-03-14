@@ -52,6 +52,22 @@ public:
         }
         this->length++;
     }
+    void prepend(int value)
+    {
+        Node *newNode = new Node(value);
+        if (this->length == 0)
+        {
+            this->head = newNode;
+            this->tail = newNode;
+        }
+        else
+        {
+
+            newNode->next = this->head;
+            this->head = newNode;
+        }
+        this->length++;
+    }
     void deleteLast()
     {
         if (this->length == 0)
@@ -103,21 +119,11 @@ public:
 
 int main()
 {
-    LinkedList *myLinkedList = new LinkedList(1);
-    myLinkedList->append(2);
-    std::cout << "LL before delete last: " << std::endl;
-    myLinkedList->printList();
+    LinkedList *myLinkedList = new LinkedList(2);
+    myLinkedList->append(3);
 
-    myLinkedList->deleteLast();
-    std::cout << "LL after first delete last: " << std::endl;
-    myLinkedList->printList();
+    myLinkedList->prepend(1);
 
-    myLinkedList->deleteLast();
-    std::cout << "LL after second delete last: " << std::endl;
-    myLinkedList->printList();
-
-    myLinkedList->deleteLast();
-    std::cout << "LL after third delete last: " << std::endl;
     myLinkedList->printList();
     return 0;
 }
