@@ -56,20 +56,23 @@ public:
     {
         if (this->length == 0)
             return;
+        Node *temp = this->head;
         if (this->length == 1)
         {
-            this->head == nullptr;
-            this->tail == nullptr;
+            this->head = nullptr;
+            this->tail = nullptr;
         }
-        Node *temp = this->head;
-        Node *prev = this->head;
-        while (temp->next)
+        else
         {
-            prev = temp;
-            temp = temp->next;
+            Node *prev = this->head;
+            while (temp->next)
+            {
+                prev = temp;
+                temp = temp->next;
+            }
+            this->tail = prev;
+            this->tail->next = nullptr;
         }
-        this->tail = prev;
-        this->tail->next = nullptr;
         delete temp;
         this->length--;
     }
@@ -101,17 +104,20 @@ public:
 int main()
 {
     LinkedList *myLinkedList = new LinkedList(1);
+    myLinkedList->append(2);
+    std::cout << "LL before delete last: " << std::endl;
     myLinkedList->printList();
-    myLinkedList->getHead();
-    myLinkedList->getTail();
-    myLinkedList->getLength();
-    std::cout << std::endl;
-    std::cout << std::endl;
-    std::cout << std::endl;
-    myLinkedList->append(5);
+
+    myLinkedList->deleteLast();
+    std::cout << "LL after first delete last: " << std::endl;
     myLinkedList->printList();
-    myLinkedList->getHead();
-    myLinkedList->getTail();
-    myLinkedList->getLength();
+
+    myLinkedList->deleteLast();
+    std::cout << "LL after second delete last: " << std::endl;
+    myLinkedList->printList();
+
+    myLinkedList->deleteLast();
+    std::cout << "LL after third delete last: " << std::endl;
+    myLinkedList->printList();
     return 0;
 }
