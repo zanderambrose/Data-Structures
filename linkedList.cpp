@@ -52,6 +52,27 @@ public:
         }
         this->length++;
     }
+    void deleteLast()
+    {
+        if (this->length == 0)
+            return;
+        if (this->length == 1)
+        {
+            this->head == nullptr;
+            this->tail == nullptr;
+        }
+        Node *temp = this->head;
+        Node *prev = this->head;
+        while (temp->next)
+        {
+            prev = temp;
+            temp = temp->next;
+        }
+        this->tail = prev;
+        this->tail->next = nullptr;
+        delete temp;
+        this->length--;
+    }
     void printList()
     {
         Node *temp = this->head;
