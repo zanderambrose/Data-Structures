@@ -144,6 +144,36 @@ public:
             return true;
         }
     }
+    bool insert(int value, int index)
+    {
+        if (index < 0 || index > this->length)
+        {
+            return false;
+        }
+        else if (index == 0)
+        {
+            this->prepend(value);
+            return true;
+        }
+        else if (index == length)
+        {
+            this->append(value);
+            return true;
+        }
+        else
+        {
+            Node *newNode = new Node(value);
+            Node *temp = this->head;
+            for (int i = 1; i < index; i++)
+            {
+                temp = temp->next;
+            }
+            newNode->next = temp->next;
+            temp->next = newNode;
+            this->length++;
+            return true;
+        }
+    }
     void printList()
     {
         Node *temp = this->head;
@@ -176,8 +206,9 @@ int main()
     myLinkedList->append(23);
     myLinkedList->append(7);
 
-    myLinkedList->set(9, 10);
+    myLinkedList->printList();
 
+    myLinkedList->insert(10, 1);
     myLinkedList->printList();
 
     return 0;
