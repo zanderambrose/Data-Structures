@@ -122,6 +122,28 @@ public:
         }
         return nullptr;
     }
+    bool set(int value, int index)
+    {
+        if (index < 0 || index > this->length)
+        {
+            return false;
+        }
+        else if (index == 0)
+        {
+            this->head->value = value;
+            return true;
+        }
+        else
+        {
+            Node *temp = this->head;
+            for (int i = 1; i <= index; i++)
+            {
+                temp = temp->next;
+            }
+            temp->value = value;
+            return true;
+        }
+    }
     void printList()
     {
         Node *temp = this->head;
@@ -149,13 +171,14 @@ public:
 
 int main()
 {
-    LinkedList *myLinkedList = new LinkedList(0);
-    myLinkedList->append(1);
-    myLinkedList->append(2);
+    LinkedList *myLinkedList = new LinkedList(11);
     myLinkedList->append(3);
+    myLinkedList->append(23);
+    myLinkedList->append(7);
 
-    std::cout << myLinkedList->get(2) << std::endl;
-    std::cout << myLinkedList->get(2)->value << std::endl;
+    myLinkedList->set(9, 10);
+
+    myLinkedList->printList();
 
     return 0;
 }
