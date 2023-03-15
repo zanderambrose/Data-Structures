@@ -174,6 +174,34 @@ public:
             return true;
         }
     }
+    void deleteNode(int index)
+    {
+        if (index < 0 || index >= this->length)
+        {
+            return;
+        }
+        else if (index == 0)
+        {
+            return this->deleteFirst();
+        }
+        else if (index == this->length - 1)
+        {
+            return this->deleteLast();
+        }
+        else
+        {
+            Node *temp = this->head->next;
+            Node *prev = this->head;
+            for (int i = 1; i < index; i++)
+            {
+                temp = temp->next;
+                prev = prev->next;
+            }
+            prev->next = temp->next;
+            delete temp;
+            length--;
+        }
+    }
     void printList()
     {
         Node *temp = this->head;
@@ -201,15 +229,25 @@ public:
 
 int main()
 {
-    LinkedList *myLinkedList = new LinkedList(11);
+    LinkedList *myLinkedList = new LinkedList(1);
+    myLinkedList->append(2);
     myLinkedList->append(3);
-    myLinkedList->append(23);
-    myLinkedList->append(7);
+    myLinkedList->append(4);
+    myLinkedList->append(5);
 
+    std::cout << "LL before deleteNode(): " << std::endl;
     myLinkedList->printList();
 
-    myLinkedList->insert(10, 1);
+    myLinkedList->deleteNode(2);
+    std::cout << "LL after deleteNode() in middle: " << std::endl;
     myLinkedList->printList();
 
+    myLinkedList->deleteNode(0);
+    std::cout << "LL after deleteNode() of first node: " << std::endl;
+    myLinkedList->printList();
+
+    myLinkedList->deleteNode(2);
+    std::cout << "LL after deleteNode() of last node: " << std::endl;
+    myLinkedList->printList();
     return 0;
 }
