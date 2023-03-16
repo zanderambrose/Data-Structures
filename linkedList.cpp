@@ -202,6 +202,25 @@ public:
             length--;
         }
     }
+    void reverse()
+    {
+        Node *current = this->head;
+        this->head = this->tail;
+        this->tail = current;
+        Node *next = current->next;
+        Node *previous = nullptr;
+        for (int i = 0; i < this->length; i++)
+        {
+            current->next = previous;
+            previous = current;
+            current = next;
+            if (next->next)
+            {
+
+                next = next->next;
+            }
+        }
+    }
     void printList()
     {
         Node *temp = this->head;
@@ -235,19 +254,15 @@ int main()
     myLinkedList->append(4);
     myLinkedList->append(5);
 
-    std::cout << "LL before deleteNode(): " << std::endl;
+    myLinkedList->getHead();
+    myLinkedList->getTail();
+
     myLinkedList->printList();
 
-    myLinkedList->deleteNode(2);
-    std::cout << "LL after deleteNode() in middle: " << std::endl;
+    myLinkedList->reverse();
     myLinkedList->printList();
+    myLinkedList->getHead();
+    myLinkedList->getTail();
 
-    myLinkedList->deleteNode(0);
-    std::cout << "LL after deleteNode() of first node: " << std::endl;
-    myLinkedList->printList();
-
-    myLinkedList->deleteNode(2);
-    std::cout << "LL after deleteNode() of last node: " << std::endl;
-    myLinkedList->printList();
     return 0;
 }
