@@ -108,9 +108,20 @@ public:
             return nullptr;
         }
         Node *temp = this->head;
-        for (int i = 0; i < index; i++)
+        if (index < this->length / 2)
         {
-            temp = temp->next;
+            for (int i = 0; i < index; i++)
+            {
+                temp = temp->next;
+            }
+        }
+        else
+        {
+            temp = this->tail;
+            for (int i = this->length - 1; i > index; i--)
+            {
+                temp = temp->previous;
+            }
         }
         std::cout << temp->value << std::endl;
         return temp;
@@ -143,8 +154,10 @@ int main()
 {
     DoublyLinkedList *myDll = new DoublyLinkedList(1);
     myDll->append(2);
+    myDll->append(4);
+    myDll->append(6);
     myDll->printList();
-    myDll->get(10);
+    myDll->get(2);
     // myDll->deleteFirst();
     // myDll->printList();
     // myDll->deleteFirst();
