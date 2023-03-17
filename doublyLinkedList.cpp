@@ -47,6 +47,22 @@ public:
         }
         this->length++;
     }
+    void prepend(int value)
+    {
+        Node *newNode = new Node(value);
+        if (this->length == 0)
+        {
+            this->head = newNode;
+            this->tail = newNode;
+        }
+        else
+        {
+            newNode->next = this->head;
+            this->head->previous = newNode;
+            this->head = newNode;
+        }
+        this->length++;
+    }
     void deleteLast()
     {
         if (this->length == 0)
@@ -66,6 +82,9 @@ public:
         }
         delete temp;
         this->length--;
+    }
+    void deleteFirst()
+    {
     }
     void getHead()
     {
@@ -93,36 +112,34 @@ public:
 
 int main()
 {
-    DoublyLinkedList *myDll = new DoublyLinkedList(10);
+    DoublyLinkedList *myDll = new DoublyLinkedList(1);
+    // myDll->append(2);
+    // myDll->printList();
+    // myDll->prepend(10);
+    // myDll->printList();
+    // myDll->deleteLast();
+    // myDll->deleteLast();
+    // myDll->deleteLast();
+    // myDll->printList();
+    // myDll->prepend(10);
+    // myDll->printList();
 
-    myDll->append(4);
-    myDll->append(9);
-    myDll->printList();
-    myDll->getHead();
-    myDll->getTail();
-    myDll->getLength();
-    std::cout << std::endl;
-    std::cout << "Delete Last: " << std::endl;
+    // std::cout << "Dll before deleteLast(): " << std::endl;
+    // myDll->printList();
 
-    myDll->deleteLast();
-    myDll->printList();
-    myDll->getHead();
-    myDll->getTail();
-    myDll->getLength();
-    std::cout << std::endl;
-    std::cout << "Delete Last: " << std::endl;
+    // myDll->deleteLast();
+    // std::cout << "Dll after 1st deleteLast(): " << std::endl;
+    // myDll->printList();
 
-    myDll->deleteLast();
-    myDll->printList();
-    myDll->getHead();
-    myDll->getTail();
-    myDll->getLength();
-    std::cout << std::endl;
-    std::cout << "Delete Last: " << std::endl;
+    // myDll->deleteLast();
+    // std::cout << "Dll after 2nd deleteLast(): " << std::endl;
+    // myDll->printList();
 
-    myDll->deleteLast();
-    myDll->printList();
-    myDll->getHead();
-    myDll->getTail();
-    myDll->getLength();
+    // myDll->deleteLast();
+    // std::cout << "Dll after 3rd deleteLast(): " << std::endl;
+    // myDll->printList();
+
+    // myDll->deleteLast();
+    // std::cout << "Dll after 4th deleteLast(): " << std::endl;
+    // myDll->printList();
 }
