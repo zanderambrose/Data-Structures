@@ -85,6 +85,21 @@ public:
     }
     void deleteFirst()
     {
+        if (this->length == 0)
+            return;
+        if (this->length == 1)
+        {
+            this->head = nullptr;
+            this->tail = nullptr;
+        }
+        else
+        {
+            Node *temp = this->head;
+            this->head = this->head->next;
+            this->head->previous = nullptr;
+            delete temp;
+        }
+        this->length--;
     }
     void getHead()
     {
@@ -113,7 +128,15 @@ public:
 int main()
 {
     DoublyLinkedList *myDll = new DoublyLinkedList(1);
+    myDll->append(2);
+    // myDll->printList();
+    // myDll->deleteFirst();
+    // myDll->printList();
+    // myDll->deleteFirst();
+    // myDll->printList();
     // myDll->append(2);
+    // myDll->append(2);
+    // myDll->deleteFirst();
     // myDll->printList();
     // myDll->prepend(10);
     // myDll->printList();
