@@ -33,10 +33,9 @@ public:
     void append(int value)
     {
         Node *newNode = new Node(value);
-        if (this->length == 1)
+        if (this->length == 0)
         {
-            this->head->next = newNode;
-            newNode->previous = this->head;
+            this->head = newNode;
             this->tail = newNode;
         }
         else
