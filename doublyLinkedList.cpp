@@ -101,6 +101,20 @@ public:
         delete temp;
         this->length--;
     }
+    Node *get(int index)
+    {
+        if (this->length == 0 || index < 0 || index >= this->length)
+        {
+            return nullptr;
+        }
+        Node *temp = this->head;
+        for (int i = 0; i < index; i++)
+        {
+            temp = temp->next;
+        }
+        std::cout << temp->value << std::endl;
+        return temp;
+    }
     void getHead()
     {
         std::cout << "Head: " << this->head->value << std::endl;
@@ -129,7 +143,8 @@ int main()
 {
     DoublyLinkedList *myDll = new DoublyLinkedList(1);
     myDll->append(2);
-    // myDll->printList();
+    myDll->printList();
+    myDll->get(10);
     // myDll->deleteFirst();
     // myDll->printList();
     // myDll->deleteFirst();
