@@ -87,6 +87,7 @@ public:
     {
         if (this->length == 0)
             return;
+        Node *temp = this->head;
         if (this->length == 1)
         {
             this->head = nullptr;
@@ -94,11 +95,10 @@ public:
         }
         else
         {
-            Node *temp = this->head;
             this->head = this->head->next;
             this->head->previous = nullptr;
-            delete temp;
         }
+        delete temp;
         this->length--;
     }
     void getHead()
