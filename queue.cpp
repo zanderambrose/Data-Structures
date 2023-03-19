@@ -55,17 +55,14 @@ public:
 		{
 			this->front = nullptr;
 			this->back = nullptr;
-			this->length = 0;
-			delete tempFront;
-			return frontValue;
 		}
 		else
 		{
 			this->front = tempFront->next;
-			this->length--;
-			delete tempFront;
-			return frontValue;
 		}
+		delete tempFront;
+		this->length--;
+		return frontValue;
 	}
 	void printQ()
 	{
