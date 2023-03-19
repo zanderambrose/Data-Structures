@@ -99,5 +99,3 @@ int main()
 
 	return 0;
 }
-
-// push, pop, size, front, back
