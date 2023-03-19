@@ -1,6 +1,6 @@
 ll:
-	g++ --std=c++17 -o linkedList linkedList.cpp;
-	./linkedList;
+	g++ --std=c++17 -o _.linkedList linkedList.cpp;
+	./_.linkedList;
 dll:
-	g++ --std=c++17 -o doublyLinkedList doublyLinkedList.cpp;
-	./doublyLinkedList;
+	g++ --std=c++17 -o _.doublyLinkedList doublyLinkedList.cpp;
+	./_.doublyLinkedList;

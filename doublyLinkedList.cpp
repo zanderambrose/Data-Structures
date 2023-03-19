@@ -123,7 +123,7 @@ public:
                 temp = temp->previous;
             }
         }
-        std::cout << temp->value << std::endl;
+        // std::cout << temp->value << std::endl;
         return temp;
     }
     bool set(int index, int value)
@@ -162,45 +162,13 @@ public:
 
 int main()
 {
-    DoublyLinkedList *myDll = new DoublyLinkedList(1);
-    myDll->append(2);
-    myDll->append(4);
-    myDll->append(6);
+    DoublyLinkedList *myDll = new DoublyLinkedList(11);
+    myDll->append(3);
+    myDll->append(23);
+    myDll->append(7);
+
     myDll->printList();
-    myDll->get(2);
-    // myDll->deleteFirst();
-    // myDll->printList();
-    // myDll->deleteFirst();
-    // myDll->printList();
-    // myDll->append(2);
-    // myDll->append(2);
-    // myDll->deleteFirst();
-    // myDll->printList();
-    // myDll->prepend(10);
-    // myDll->printList();
-    // myDll->deleteLast();
-    // myDll->deleteLast();
-    // myDll->deleteLast();
-    // myDll->printList();
-    // myDll->prepend(10);
-    // myDll->printList();
+    myDll->set(100, 0);
 
-    // std::cout << "Dll before deleteLast(): " << std::endl;
-    // myDll->printList();
-
-    // myDll->deleteLast();
-    // std::cout << "Dll after 1st deleteLast(): " << std::endl;
-    // myDll->printList();
-
-    // myDll->deleteLast();
-    // std::cout << "Dll after 2nd deleteLast(): " << std::endl;
-    // myDll->printList();
-
-    // myDll->deleteLast();
-    // std::cout << "Dll after 3rd deleteLast(): " << std::endl;
-    // myDll->printList();
-
-    // myDll->deleteLast();
-    // std::cout << "Dll after 4th deleteLast(): " << std::endl;
-    // myDll->printList();
+    myDll->printList();
 }
