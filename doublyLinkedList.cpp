@@ -161,6 +161,26 @@ public:
         this->length++;
         return true;
     }
+    void deleteNode(int index)
+    {
+        if (index < 0 || index >= this->length)
+            return;
+        if (index == 0)
+        {
+            this->deleteFirst();
+        }
+        if (index == this->length - 1)
+        {
+            this->deleteLast();
+        }
+        Node *before = this->get(index - 1);
+        Node *nodeToDelete = this->get(index);
+        Node *after = this->get(index + 1);
+        before->next = after;
+        after->previous = before;
+        delete nodeToDelete;
+        this->length--;
+    }
     void getHead()
     {
         std::cout << "Head: " << this->head->value << std::endl;
@@ -194,6 +214,7 @@ int main()
 
     myDll->printList();
 
-    myDll->insert(10, 69);
+    myDll->deleteNode(1);
+
     myDll->printList();
 }
