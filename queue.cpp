@@ -65,11 +65,19 @@ public:
 	{
 		std::cout << "Back: " << this->back->value << std::endl;
 	}
+	void getLength()
+	{
+		std::cout << "Length: " << this->length << std::endl;
+	}
 };
 
 int main()
 {
 	Queue *myQ = new Queue(7);
+	myQ->getFront();
+	myQ->getBack();
+	myQ->getLength();
+	myQ->printQ();
 	return 0;
 }
 

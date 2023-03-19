@@ -7,3 +7,6 @@ dll:
 stack:
 	g++ --std=c++17 -o _.stack stack.cpp;
 	./_.stack;
+q:
+	g++ --std=c++17 -o _.queue queue.cpp;
+	./_.queue;
