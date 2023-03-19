@@ -47,7 +47,7 @@ public:
 	}
 	int dequeue()
 	{
-		if (this->length <= 0)
+		if (this->length = 0)
 			return INT_MIN;
 		int frontValue = this->front->value;
 		Node *tempFront = this->front;
