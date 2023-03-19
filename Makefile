@@ -10,3 +10,6 @@ stack:
 q:
 	g++ --std=c++17 -o _.queue queue.cpp;
 	./_.queue;
+bst:
+	g++ --std=c++17 -o _.bst BinaryTree.cpp;
+	./_.bst;

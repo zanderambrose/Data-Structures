@@ -17,10 +17,12 @@ public:
 
 class BinarySearchTree
 {
-private:
-    Node *root;
 
 public:
+    // Only public for testing.
+    // This should be private
+    Node *root;
+
     BinarySearchTree(int value)
     {
         Node *newNode = new Node(value);
@@ -68,10 +70,24 @@ public:
                 }
             }
         }
+        return false;
     }
 };
 
 int main()
 {
+    BinarySearchTree *myBST = new BinarySearchTree();
+
+    myBST->insert(47);
+    myBST->insert(21);
+    myBST->insert(76);
+    myBST->insert(18);
+    myBST->insert(52);
+    myBST->insert(82);
+
+    myBST->insert(27);
+
+    std::cout << "My BST: " << myBST->root->left->right->value << std::endl;
+
     return 0;
 }
