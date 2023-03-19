@@ -47,7 +47,7 @@ public:
 	}
 	int dequeue()
 	{
-		if (this->length = 0)
+		if (this->length == 0)
 			return INT_MIN;
 		int frontValue = this->front->value;
 		Node *tempFront = this->front;
@@ -90,11 +90,17 @@ public:
 
 int main()
 {
-	Queue *myQ = new Queue(7);
-	myQ->getFront();
-	myQ->getBack();
-	myQ->getLength();
-	myQ->printQ();
+	Queue *myQ = new Queue(2);
+	myQ->enqueue(1);
+
+	std::cout << "Dequeued value: " << myQ->dequeue() << std::endl;
+	std::cout << "Dequeued value again: " << myQ->dequeue() << std::endl;
+	std::cout << "Dequeued value again again: " << myQ->dequeue() << std::endl;
+
+	// myQ->getFront();
+	// myQ->getBack();
+	// myQ->getLength();
+	// myQ->printQ();
 	return 0;
 }
 
