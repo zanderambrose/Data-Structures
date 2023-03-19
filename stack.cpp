@@ -32,6 +32,17 @@ public:
         this->top = newNode;
         this->height++;
     }
+    int pop()
+    {
+        if (this->height == 0)
+            return INT_MIN;
+        StackNode *temp = this->top;
+        int poppedValue = temp->value;
+        this->top = temp->next;
+        delete temp;
+        this->height--;
+        return poppedValue;
+    }
     void getTop()
     {
         std::cout << "Top of stack: " << this->top->value << std::endl;
