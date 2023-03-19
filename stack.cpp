@@ -25,6 +25,13 @@ public:
         this->top = newNode;
         this->height = 1;
     }
+    void push(int value)
+    {
+        StackNode *newNode = new StackNode(value);
+        newNode->next = this->top;
+        this->top = newNode;
+        this->height++;
+    }
     void getTop()
     {
         std::cout << "Top of stack: " << this->top->value << std::endl;
