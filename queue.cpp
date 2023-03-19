@@ -8,8 +8,8 @@ public:
 	Node *next;
 	Node(int value)
 	{
-		Node *newNode = new Node(value);
-		newNode->next = nullptr;
+		this->value = value;
+		this->next = nullptr;
 	}
 };
 
