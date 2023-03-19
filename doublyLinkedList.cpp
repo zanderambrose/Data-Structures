@@ -138,7 +138,7 @@ public:
     }
     bool insert(int index, int value)
     {
-        if (index < 0 || index > this->length + 1)
+        if (index < 0 || index > this->length)
         {
             return false;
         }
