@@ -97,10 +97,6 @@ int main()
 	std::cout << "Dequeued value again: " << myQ->dequeue() << std::endl;
 	std::cout << "Dequeued value again again: " << myQ->dequeue() << std::endl;
 
-	// myQ->getFront();
-	// myQ->getBack();
-	// myQ->getLength();
-	// myQ->printQ();
 	return 0;
 }
 
