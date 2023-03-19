@@ -74,9 +74,10 @@ public:
     }
     bool contains(int value)
     {
-        Node *temp = this->root;
         if (this->root == nullptr)
             return false;
+
+        Node *temp = this->root;
         while (temp)
         {
             if (temp->value == value)
