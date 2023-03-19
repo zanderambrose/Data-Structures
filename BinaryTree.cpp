@@ -72,6 +72,31 @@ public:
         }
         return false;
     }
+    bool contains(int value)
+    {
+        Node *temp = this->root;
+        if (this->root == nullptr)
+            return false;
+        while (temp)
+        {
+            if (temp->value == value)
+            {
+                return true;
+            }
+            else
+            {
+                if (value < temp->value)
+                {
+                    temp = temp->left;
+                }
+                else
+                {
+                    temp = temp->right;
+                }
+            }
+        }
+        return false;
+    }
 };
 
 int main()
@@ -85,9 +110,8 @@ int main()
     myBST->insert(52);
     myBST->insert(82);
 
-    myBST->insert(27);
-
-    std::cout << "My BST: " << myBST->root->left->right->value << std::endl;
+    int guess = 11;
+    std::cout << "My BST contains " << guess << " is a " << (myBST->contains(guess) == 1 ? "true" : "false") << " statement!" << std::endl;
 
     return 0;
 }
