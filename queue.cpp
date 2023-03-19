@@ -47,6 +47,24 @@ public:
 		delete tempFront;
 		return frontValue;
 	}
+	void printQ()
+	{
+		Node *temp = this->front;
+		while (temp)
+		{
+			std::cout << temp->value << ", ";
+			temp = temp->next;
+		}
+		std::cout << std::endl;
+	}
+	void getFront()
+	{
+		std::cout << "Front: " << this->front->value << std::endl;
+	}
+	void getBack()
+	{
+		std::cout << "Back: " << this->back->value << std::endl;
+	}
 };
 
 int main()
