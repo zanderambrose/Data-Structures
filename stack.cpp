@@ -54,9 +54,11 @@ public:
 
 int main()
 {
-    Stack *stack = new Stack(1);
+    Stack *stack = new Stack(2);
+    stack->printStack();
+    stack->push(1);
+    stack->printStack();
     stack->getHeight();
     stack->getTop();
-    stack->printStack();
     return 0;
 }
