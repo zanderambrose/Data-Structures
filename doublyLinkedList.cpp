@@ -126,6 +126,16 @@ public:
         std::cout << temp->value << std::endl;
         return temp;
     }
+    bool set(int index, int value)
+    {
+        if (index < 0 || index >= this->length)
+        {
+            return false;
+        }
+        Node *node = this->get(index);
+        node->value = value;
+        return true;
+    }
     void getHead()
     {
         std::cout << "Head: " << this->head->value << std::endl;
