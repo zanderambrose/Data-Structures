@@ -32,9 +32,18 @@ public:
 	void enqueue(int value)
 	{
 		Node *newNode = new Node(value);
-		this->back->next = newNode;
-		this->back = newNode;
-		this->length++;
+		if (this->length == 0)
+		{
+			this->front = newNode;
+			this->back = newNode;
+			this->length = 1;
+		}
+		else
+		{
+			this->back->next = newNode;
+			this->back = newNode;
+			this->length++;
+		}
 	}
 	int dequeue()
 	{
