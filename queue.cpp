@@ -51,10 +51,21 @@ public:
 			return INT_MIN;
 		int frontValue = this->front->value;
 		Node *tempFront = this->front;
-		this->front = tempFront->next;
-		this->length--;
-		delete tempFront;
-		return frontValue;
+		if (this->length == 1)
+		{
+			this->front = nullptr;
+			this->back = nullptr;
+			this->length = 0;
+			delete tempFront;
+			return frontValue;
+		}
+		else
+		{
+			this->front = tempFront->next;
+			this->length--;
+			delete tempFront;
+			return frontValue;
+		}
 	}
 	void printQ()
 	{
