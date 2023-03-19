@@ -136,6 +136,31 @@ public:
         node->value = value;
         return true;
     }
+    bool insert(int index, int value)
+    {
+        if (index < 0 || index > this->length + 1)
+        {
+            return false;
+        }
+        if (index == this->length)
+        {
+            this->append(value);
+            return true;
+        }
+        if (index == 0)
+        {
+            this->prepend(value);
+            return true;
+        }
+        Node *newNode = new Node(value);
+        Node *temp = this->get(index - 1);
+        newNode->next = temp->next;
+        newNode->previous = temp;
+        temp->next->previous = newNode;
+        temp->next = newNode;
+        this->length++;
+        return true;
+    }
     void getHead()
     {
         std::cout << "Head: " << this->head->value << std::endl;
@@ -168,7 +193,7 @@ int main()
     myDll->append(7);
 
     myDll->printList();
-    myDll->set(100, 0);
 
+    myDll->insert(10, 69);
     myDll->printList();
 }
