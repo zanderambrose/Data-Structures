@@ -51,7 +51,7 @@ public:
 
 int main()
 {
-	Queue myQ(1);
+	Queue *myQ = new Queue(7);
 	return 0;
 }
 
