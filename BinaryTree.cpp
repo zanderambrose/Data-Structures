@@ -26,6 +26,10 @@ public:
         Node *newNode = new Node(value);
         this->root = newNode;
     }
+    BinarySearchTree()
+    {
+        this->root = nullptr;
+    }
 };
 
 int main()
