@@ -30,19 +30,19 @@ public:
     {
         this->root = nullptr;
     }
-    void insert(int value)
+    bool insert(int value)
     {
         Node *newNode = new Node(value);
         if (this->root == nullptr)
         {
             this->root = newNode;
-            return;
+            return true;
         }
         Node *temp = this->root;
         while (temp)
         {
             if (temp->value == newNode->value)
-                return;
+                return false;
             if (value < temp->value)
             {
                 if (temp->left)
@@ -52,7 +52,7 @@ public:
                 else
                 {
                     temp->left = newNode;
-                    break;
+                    return true;
                 }
             }
             else
@@ -64,7 +64,7 @@ public:
                 else
                 {
                     temp->right = newNode;
-                    break;
+                    return true;
                 }
             }
         }
