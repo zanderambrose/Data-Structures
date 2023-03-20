@@ -13,3 +13,6 @@ q:
 bst:
 	g++ --std=c++17 -o _.bst BinaryTree.cpp;
 	./_.bst;
+hash:
+	g++ --std=c++17 -o _.hash hashTable.cpp;
+	./_.hash;
