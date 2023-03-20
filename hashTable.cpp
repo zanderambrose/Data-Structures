@@ -31,7 +31,7 @@ public:
             int asciiValue = int(key[i]);
             hash = (hash + asciiValue * 23) % SIZE;
         }
-        std::cout << "Hash is: " << hash << std::endl;
+        // std::cout << "Hash is: " << hash << std::endl;
         return hash;
     }
     void set(std::string key, int value)
@@ -55,28 +55,17 @@ public:
     Node *get(std::string key)
     {
         int index = this->hash(key);
-        if (this->dataMap[index]->key == key)
+        Node *temp = this->dataMap[index];
+        while (temp != nullptr)
         {
-            std::cout << "Value is: " << this->dataMap[index]->value << std::endl;
-            return this->dataMap[index];
-        }
-        else
-        {
-            Node *temp = this->dataMap[index];
-            while (temp->next != nullptr)
+            if (temp->key == key)
             {
-                if (temp->key == key)
-                {
-                    std::cout << "Value is: " << temp->value << std::endl;
-                    return temp;
-                }
-                else
-                {
-                    temp = temp->next;
-                }
+                // std::cout << "Value is: " << temp->value << std::endl;
+                return temp;
             }
+            temp = temp->next;
         }
-        return nullptr;
+        return temp;
     }
     void printTable()
     {
@@ -108,6 +97,6 @@ int main()
 
     hash->get("tile");
 
-    // hash->printTable();
+    hash->printTable();
     return 0;
 }
