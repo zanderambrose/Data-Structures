@@ -52,6 +52,32 @@ public:
             temp->next = newNode;
         }
     }
+    Node *get(std::string key)
+    {
+        int index = this->hash(key);
+        if (this->dataMap[index]->key == key)
+        {
+            std::cout << "Value is: " << this->dataMap[index]->value << std::endl;
+            return this->dataMap[index];
+        }
+        else
+        {
+            Node *temp = this->dataMap[index];
+            while (temp->next != nullptr)
+            {
+                if (temp->key == key)
+                {
+                    std::cout << "Value is: " << temp->value << std::endl;
+                    return temp;
+                }
+                else
+                {
+                    temp = temp->next;
+                }
+            }
+        }
+        return nullptr;
+    }
     void printTable()
     {
         for (int i = 0; i < SIZE; i++)
@@ -80,6 +106,8 @@ int main()
     hash->set("bolts", 200);
     hash->set("screws", 140);
 
-    hash->printTable();
+    hash->get("tile");
+
+    // hash->printTable();
     return 0;
 }
