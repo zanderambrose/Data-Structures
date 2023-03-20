@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <vector>
 
 class Node
 {
@@ -67,6 +68,25 @@ public:
         }
         return temp;
     }
+    std::vector<std::string> keys()
+    {
+        std::vector<std::string> returnVector;
+        for (int i = 0; i < SIZE; i++)
+        {
+            Node *temp = this->dataMap[i];
+            while (temp)
+            {
+                returnVector.push_back(temp->key);
+                temp = temp->next;
+            }
+        }
+        for (std::string key : returnVector)
+        {
+            std::cout << key << ", ";
+        }
+        std::cout << std::endl;
+        return returnVector;
+    }
     void printTable()
     {
         for (int i = 0; i < SIZE; i++)
@@ -95,8 +115,9 @@ int main()
     hash->set("bolts", 200);
     hash->set("screws", 140);
 
-    hash->get("tile");
+    // hash->get("tile");
 
-    hash->printTable();
+    // hash->printTable();
+    hash->keys();
     return 0;
 }
