@@ -16,3 +16,6 @@ bst:
 hash:
 	g++ --std=c++17 -o _.hash hashTable.cpp;
 	./_.hash;
+graph:
+	g++ --std=c++17 -o _.graph graph.cpp;
+	./_.graph;
