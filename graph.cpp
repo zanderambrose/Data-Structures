@@ -27,6 +27,16 @@ public:
         }
         return false;
     }
+    bool removeEdge(std::string v1, std::string v2)
+    {
+        if (adjList.count(v1) != 0 && adjList.count(v2) != 0)
+        {
+            adjList[v1].erase(v2);
+            adjList[v2].erase(v1);
+            return true;
+        }
+        return false;
+    }
     void printGraph()
     {
         for (auto [vertex, edges] : adjList)
@@ -48,6 +58,9 @@ int main()
     myGraph->addVertex("B");
 
     myGraph->addEdge("A", "B");
+    myGraph->printGraph();
+
+    myGraph->removeEdge("A", "B");
     myGraph->printGraph();
     return 0;
 }
