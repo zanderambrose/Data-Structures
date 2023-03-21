@@ -17,6 +17,16 @@ public:
         }
         return false;
     }
+    bool addEdge(std::string v1, std::string v2)
+    {
+        if (adjList.count(v1) != 0 && adjList.count(v2) != 0)
+        {
+            adjList[v1].insert(v2);
+            adjList[v2].insert(v1);
+            return true;
+        }
+        return false;
+    }
     void printGraph()
     {
         for (auto [vertex, edges] : adjList)
@@ -26,7 +36,7 @@ public:
             {
                 std::cout << edge << ", ";
             }
-            std::cout << " ]" << std::endl;
+            std::cout << "]" << std::endl;
         }
     }
 };
@@ -35,6 +45,9 @@ int main()
 {
     Graph *myGraph = new Graph();
     myGraph->addVertex("A");
+    myGraph->addVertex("B");
+
+    myGraph->addEdge("A", "B");
     myGraph->printGraph();
     return 0;
 }
