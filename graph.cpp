@@ -37,6 +37,20 @@ public:
         }
         return false;
     }
+    bool removeVertex(std::string vertex)
+    {
+        if (adjList.find(vertex) == adjList.end())
+        {
+            std::cout << "Nope!" << std::endl;
+            return false;
+        }
+        for (auto val : adjList.at(vertex))
+        {
+            adjList.at(val).erase(vertex);
+        }
+        adjList.erase(vertex);
+        return true;
+    }
     void printGraph()
     {
         for (auto [vertex, edges] : adjList)
@@ -63,7 +77,11 @@ int main()
     myGraph->addEdge("B", "C");
     myGraph->printGraph();
 
-    myGraph->removeEdge("A", "B");
+    std::cout << std::endl;
+    std::cout << std::endl;
+    std::cout << std::endl;
+    // myGraph->removeEdge("A", "B");
+    myGraph->removeVertex("B");
     myGraph->printGraph();
     return 0;
 }
